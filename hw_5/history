@@ -1,0 +1,81 @@
+ 454  cd homework
+  455  cd hw5
+  456  conda activate blast
+  457  ls
+  458  conda activate blast
+  459  cd homework
+  460  ls
+  461  cd hw5
+  462  ls
+  463  TransDecoder.LongOrfs -h
+  464  TransDecoder.LongOrfs -t PPYR_OGS1.1.CDS.fa
+  465  ls
+  466  tree
+  467  ls
+  468  cd ~
+  469  ls
+  470  cd classes
+  471  ls
+  472  cd class_5
+  473  ls
+  474  cd ~
+  475  cd ..
+  476  ls
+  477  cd ..
+  478  ls
+  479  cd projects
+  480  ls
+  481  ls mipt_dbmp_biotechnology
+  482  cp lcruciata_luc.fasta ~/hw/hw5
+  483  cp lcruciata_luc.fasta ~/homework/hw5
+  484  cp lcruciata_luc.fasta ./~
+  485  ls luciferase_blast
+  486  cd luciferase_blast
+  487  (blast) emichno@frontend-1-2-13:/projects$ ls mipt_dbmp_biotechnology
+  488  GRCh38     conda                genome_de_novo  lcruciata_luc.fasta  seq_data
+  489  alignment  dluppov_classes      genomics        luciferase_blast     soft
+  490  class_2    fastqc_and_trimming  hmmer           rna_seq_diff_exp
+  491  class_4    genome               homework_blast  rnaseq_map_star
+  492  cd  mipt_dbmp_biotechnology
+  493  ls
+  494  ls luciferase_blast
+  495  cp lcruciata_luc.fasta ~
+  496  cd ~
+  497  ls
+  498  mv lcruciata_luc.fasta homework/hw5
+  499  cd homework/hw5
+  500  ls
+  501  TransDecoder.LongOrfs -t lcruciata_luc.fasta
+  502  ls
+  503  tree
+  504  mkdir pyra
+  505  cp PPYR_OGS1.1.CDS.fa.transdecoder_dir/longest_orfs.pep pyra.pep
+  506  cd pyra
+  507  ls
+  508  cd ..
+  509  cp lcruciata_luc.fasta.transdecoder_dir/longest_orfs.pep lcruciata.pep
+  510  ls
+  511  mv pyra.pep pyra
+  512  mv lcruciata.pep pyra
+  513  cd pyra
+  514  ls
+  515  makeblastdb -in pyra.pep -dbtype prot
+  516  ls
+  517  cd
+  518  cd ~/homework/hw5
+  519  blastp -db pyra/pyra.pep -query lcruciata.pep -outfmt 6 > pyra_hits.txt
+  520  cd pyra
+  521  blastp -db pyra.pep -query lcruciata.pep -outfmt 6 > pyra_hits.txt
+  522  less pyra_hits.txt
+  523  cat pyra_hits.txt | head | cut -f2 > pyra_hits_best.txt
+  524  less pyra_hits_best.txt
+  525  seqtk subseq pyra/pyra.pep pyra_hits_best.txt > pyra_hits_best.fasta
+  526  seqtk subseq pyra.pep pyra_hits_best.txt > pyra_hits_best.fasta
+  527  less pyra_hits_best.fasta
+  528  git clone https://github.com/Lizamkhn/Bioinf_BT_MIPT.git
+  529  cd Bioinf_BT_MIPT
+  530  cp ~/homework/hw5/pyra/pyra_hits_best.fasta ./
+  531  ls
+  532  mkdir hw_5
+  533  mv  pyra_hits_best.fasta hw_5
+  534  cd hw_5
